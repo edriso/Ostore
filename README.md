@@ -1,4 +1,4 @@
-#### Olive
+#### Ostore
 
 Mini E-commerce Store Website
 
