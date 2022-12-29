@@ -44,3 +44,29 @@ function setUsersToLocalStoratage(keyOfLocalStorage, usersAsArray){
     // Set Users As String To Local Storage.
     window.localStorage.setItem(keyOfLocalStorage, usersAsString);
 }
+/*---------------show passward in signup--------------------------- */
+function Show1() {
+    var x = document.getElementById("password");
+    var y = document.getElementById("confirm");
+    if (x.type === "password" && y.type === "password") {
+      x.type = "text";
+      y.type = "text";
+    }
+    else {
+      x.type = "password";
+      y.type = "password";
+    }
+  }
+  /*---------------show passward in login--------------------------- */
+
+function Show2() {
+  
+    var z = document.getElementById("login-password");
+    if (z.type === "password") {
+      
+      z.type = "text";
+    }
+    else {
+      z.type = "password";
+    }
+  }

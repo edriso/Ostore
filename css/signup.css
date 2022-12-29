@@ -43,7 +43,7 @@ input{
 	background: #e0dede;
 	justify-content: center;
 	display: flex;
-	margin: 20px auto;
+    margin: 20px auto;
 	padding: 10px;
 	border: none;
 	outline: none;
@@ -59,7 +59,6 @@ input{
 	background: #573b8a;
 	font-size: 1em;
 	font-weight: bold;
-	margin-top: 20px;
 	outline: none;
 	border: none;
 	border-radius: 5px;
@@ -93,10 +92,10 @@ button:hover{
 
 /* .................................................................................. */
 input:not(:placeholder-shown):valid {
-	border: 5px solid green;
+	border: solid green;
   }
   input:not(:placeholder-shown):invalid{
-	border: 5px solid red;
+	border: solid red;
   }
   input:focus{
 	width: 200px;
@@ -112,4 +111,9 @@ opacity: 0;
   h5{
     color: red;
     margin-top: -10px;
+  }
+  .show{
+	display: flex;
+	justify-content: center;
+
   }

@@ -10,7 +10,8 @@ function login(user){
     // console.log("isExist Is ", isExist);
     if(isExist)
         // alert(`Hello ${JSON.stringify(isExist.email)}`);
-        window.location.href = "http://www.w3schools.com";
+        window.location.href = "../index.html";
     else 
-        alert(`You Are Not Login`);
+        alert(`You Are Not Login
+passward or email incorrect `);
 }

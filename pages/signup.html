@@ -39,10 +39,11 @@
   
             <input type="password" onChange="onChange(this.id,'confirm')" name="pswd" id="password" placeholder="Password" required="" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$">
             <h5>Minimum eight characters, at least one uppercase letter, one lowercase letter and one number</h5>
+  
                   <!-- ......................................................................................................... -->
               <input name="confirm"  type="password" onChange="onChange('password',this.id)" placeholder="confirm password" id="confirm" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" >
-  
             <!-- <button id="sign-up-button">Sign up</button> -->
+            <div class="show" style="color: white;"><input type="checkbox" onclick="Show1()" style="    width: 20px; margin: 0; ">show password</div>
             <input type="submit" id="sign-up-button" value="Submit">
           </form>
         </div>
@@ -54,6 +55,8 @@
             <label for="chk" aria-hidden="true" id="log">Login</label>
             <input id="login-email" type="email" name="email" placeholder="Email" required="">
             <input id="login-password" type="password" name="pswd" placeholder="Password" required="">
+            <div class="show" ><input type="checkbox" onclick="Show2()" style="    width: 20px; margin: 0;">show password</div>
+  
             <input type="submit" id="login-button" value="Submit">
           </form>
         </div>
@@ -61,8 +64,6 @@
     <script src="../js/login.js"></script>
     <script src="../js/signup.js"></script>
     <script>
-  
-  
       // Event Listener For Button sign up.
       document.getElementById("signup-form").addEventListener("submit", function(event){
           event.preventDefault();
