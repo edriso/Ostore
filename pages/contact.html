@@ -26,11 +26,63 @@
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Source+Code+Pro:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <title>Olive | Contact</title>
+    <title>Ostore | Contact</title>
   </head>
   <body>
     <main class="contact">
-      <p>contact page</p>
+      <div class="jumbotron jumbotron-fluid bg-light py-5">
+        <div class="container">
+          <h1 class="display-4">Contact Us</h1>
+          <p class="lead">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab,
+            laboriosam ullam voluptatibus facilis aperiam nobis.
+          </p>
+        </div>
+      </div>
+      <!-- Wrapper container -->
+      <div class="container py-4">
+        <!-- Bootstrap 5 starter form -->
+        <form id="contactForm">
+          <!-- Name input -->
+          <div class="mb-3">
+            <label class="form-label" for="name">Name</label>
+            <input
+              class="form-control"
+              id="name"
+              type="text"
+              placeholder="Name"
+            />
+          </div>
+
+          <!-- Email address input -->
+          <div class="mb-3">
+            <label class="form-label" for="emailAddress">Email Address</label>
+            <input
+              class="form-control"
+              id="emailAddress"
+              type="email"
+              placeholder="Email Address"
+            />
+          </div>
+
+          <!-- Message input -->
+          <div class="mb-3">
+            <label class="form-label" for="message">Message</label>
+            <textarea
+              class="form-control"
+              id="message"
+              type="text"
+              placeholder="Message"
+              style="height: 10rem"
+            ></textarea>
+          </div>
+
+          <!-- Form submit button -->
+          <div class="d-grid">
+            <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
     </main>
 
     <!-- Bootstrap Bundle with Popper -->
