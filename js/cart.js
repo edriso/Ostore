@@ -44,25 +44,30 @@ const item = document.createElement("tr");
 
 function addItemsToCart() {
   cart.forEach((element) => {
+    let itemRowNumber = document.querySelectorAll(".cart-item").length;
     if (element != null) {
       console.log(element);
       tableBody.innerHTML += `
       <tr class="cart-item">
-          <th scope="row">1</th>
+          <th scope="row">${itemRowNumber + 1}</th>
           <td><img src="${element.thumbnail}"
                   alt="" width="10%">
                   <span class="item-title">${element.title}</span>        
           </td>
           <td class="text-center">
               <i class="minus bi bi-bag-dash-fill text-danger fs-3"></i>
-              <input type="number" name="itemQuantity" value="1" size="2">
+              <input id="${
+                element.id
+              }" type="number" name="itemQuantity" value="${element.quantity}" size="2">
               <i class="plus bi bi-bag-plus-fill text-success fs-3"></i>
       </td>
       <td class="price text-center">
           <span class="item-price">${element.price}</span>
       </td>
       <td>
-          <i id="${element.id}" class="remove-btn bi bi-x-square text-danger fs-2"></i>
+          <i id="${
+            element.id
+          }" class="remove-btn bi bi-x-square text-danger fs-2"></i>
       </td>
   </tr>
       `;
@@ -80,15 +85,9 @@ tableBody.addEventListener("click", function (event) {
     clickedItem.parentElement.parentElement.remove();
     updateTotalPrice();
     console.log(clickedItem);
-    console.log(`this is cliked ele ${clickedItem}`);
-    console.log(`this is cliked ele id ${clickedItem.id}`);
     removeFromCartStorage(clickedItem.id);
   }
 });
-// function removeCartItem(event) {
-//   console.log("jjjjjj");
-//   event.target.parent;
-// }
 
 fetch("/json_data.json")
   .then((response) => response.json())
@@ -102,8 +101,9 @@ fetch("/json_data.json")
 //variables to hold the data
 let products = JSON.parse(localStorage.getItem("my products"));
 let cart = JSON.parse(localStorage.getItem("cart"));
-console.log(products[0].title);
+// console.log(products[0].title);
 
+//*esraa
 function addItemToCartStorage(productId) {
   let prod = products.find(function (item) {
     return item.id == productId;
@@ -129,35 +129,33 @@ function removeFromCartStorage(productId) {
 
 function updateCartStorageQuantity(productId, quantity) {
   for (let product of cart) {
-    if (product.id == productId) {
+    if (product?.id == productId) {
       product.quantity = quantity;
     }
   }
   localStorage.setItem("cart", JSON.stringify(cart));
 }
-// itemTitle[0].innerHTML=`<span class="item-title">${products[2].title}</span>`
-// addItemToCartStorage(5);
-addItemToCartStorage(1);
-// addItemToCartStorage(29);
-// removeFromCartStorage(5);
 
-// addItemToCartStorage(2);
-// removeFromCartStorage(1);
+addItemToCartStorage(1);
+addItemToCartStorage(3);
 addItemsToCart();
+
 for (let i = 0; i < itemQuantityInput.length; i++) {
   itemQuantityInput[i].addEventListener("change", function (event) {
     let targetElement = event.target;
     if (isNaN(targetElement.value) || targetElement.value <= 0) {
       targetElement.value = 1;
     }
+    let quantity = parseInt(targetElement.value)
     updateTotalPrice();
+    updateCartStorageQuantity(targetElement.id, quantity);
   });
 }
 
-//? min 26 for add items to cart
-//? min 30 for check if the item added twice
-//? min 36 if you have a problem with new add buttons
+//! 1- TODO : update quantity attribute
+//! 2- TODO : check bootstrap
+//! in case of updating price error, check the above for loop (ask idris)
 // TODO : REPlACE Input field by add & remove buttons
-// TODO : Add 2 decimal to the price
+// TODO 3- : Add 2 decimal to the price
 // TODO : Clean the code (ex. add variables & methods)
 // TODO : maybe you need to add Ready state
