@@ -9,17 +9,6 @@ let totalCostAtNav = document.querySelectorAll(".cost")[0];
 let totalCostAtFooter = document.querySelectorAll(".cost")[1];
 let itemQuantityInput = document.querySelectorAll("input[name=itemQuantity]");
 
-//to update the quantity on change it and not accepting -ve
-for (let i = 0; i < itemQuantityInput.length; i++) {
-  itemQuantityInput[i].addEventListener("change", function (event) {
-    let targetElement = event.target;
-    if (isNaN(targetElement.value) || targetElement.value <= 0) {
-      targetElement.value = 1;
-    }
-    updateTotalPrice();
-  });
-}
-
 //to not adding the same item to the cart
 for (let i = 0; i < itemTitle.length; i++) {
   //check if the item title in the cart row = the item title from the add to cart
@@ -29,34 +18,39 @@ for (let i = 0; i < itemTitle.length; i++) {
   }
 }
 
-for (let i = 0; i < removeBtn.length; i++) {
-  removeBtn[i].addEventListener("click", function (event) {
-    event.target.parentElement.parentElement.remove();
-    updateTotalPrice();
-  });
-}
-
 function updateTotalPrice() {
+  cartItemRow = document.querySelectorAll(".cart-item");
+  itemPrice = document.querySelectorAll(".item-price");
+  itemQuantityInput = document.querySelectorAll("input[name=itemQuantity]");
+
   let total = 0;
-  for (let i = 0; i < cartItemRow.length; i++) {
-    cartItemRow[i];
-    let price = parseFloat(itemPrice[i].innerText);
-    let quantity = parseFloat(itemQuantityInput[i].value);
-    total += price * quantity;
-    console.log(total);
-    totalCostAtNav.innerText = `${total} $`;
-    totalCostAtFooter.innerText = `${total} $`;
+  if (cartItemRow.length) {
+    for (let i = 0; i < cartItemRow.length; i++) {
+      console.log(cartItemRow);
+      cartItemRow[i];
+      let price = parseFloat(itemPrice[i].innerText);
+      let quantity = parseFloat(itemQuantityInput[i].value);
+      total += price * quantity;
+      console.log(total);
+      totalCostAtNav.innerText = `${total} $`;
+      totalCostAtFooter.innerText = `${total} $`;
+    }
+  } else {
+    totalCostAtNav.innerText = `${0}`;
+    totalCostAtFooter.innerText = `${0}`;
   }
 }
+const item = document.createElement("tr") 
 
 function addItemsToCart() {
-  products.forEach((element, i) => {
+  cart.forEach((element) => {
+    console.log(element);
     tableBody.innerHTML += `
     <tr class="cart-item">
         <th scope="row">1</th>
-        <td><img src="${element[i].thumbnail}"
+        <td><img src="${element.thumbnail}"
                 alt="" width="10%">
-                <span class="item-title">${element[i].title}</span>        
+                <span class="item-title">${element.title}</span>        
         </td>
         <td class="text-center">
             <i class="minus bi bi-bag-dash-fill text-danger fs-3"></i>
@@ -64,7 +58,7 @@ function addItemsToCart() {
             <i class="plus bi bi-bag-plus-fill text-success fs-3"></i>
     </td>
     <td class="price text-center">
-        <span class="item-price">10</span>
+        <span class="item-price">${element.price}</span>
     </td>
     <td>
         <i class="remove-btn bi bi-x-square text-danger fs-2"></i>
@@ -76,12 +70,20 @@ function addItemsToCart() {
   updateTotalPrice();
 }
 
+tableBody.addEventListener("click", function (event) {
+  // console.log(event.target);
+  let clickedItem = event.target;
+  if (clickedItem.classList.contains("remove-btn")) {
+    clickedItem.parentElement.parentElement.remove();
+    updateTotalPrice();
+  }
+});
 // function removeCartItem(event) {
 //   console.log("jjjjjj");
 //   event.target.parent;
 // }
 
-fetch("json_data.json")
+fetch("/json_data.json")
   .then((response) => response.json())
   .then(function (data) {
     localStorage.setItem("my products", JSON.stringify(data));
@@ -103,7 +105,8 @@ function addItemToCartStorage(productId) {
   if (cart.length == 0) {
     cart.push(prod);
   } else {
-    let result = cart.find((element) => element.id == productId);
+    // console.log(cart);
+    let result = cart.find((element) => element?.id == productId);
     if (result === undefined) {
       cart.push(prod);
     }
@@ -113,7 +116,7 @@ function addItemToCartStorage(productId) {
 
 function removeFromCartStorage(productId) {
   console.log(cart);
-  let temp = cart.filter((item) => item.id != productId);
+  let temp = cart.filter((item) => item?.id != productId);
   localStorage.setItem("cart", JSON.stringify(temp));
 }
 
@@ -130,6 +133,7 @@ function updateCartStorageQuantity(productId, quantity) {
 addItemToCartStorage(1);
 addItemToCartStorage(2);
 removeFromCartStorage(1);
+addItemsToCart();
 
 //? min 26 for add items to cart
 //? min 30 for check if the item added twice
