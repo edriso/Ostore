@@ -40,31 +40,33 @@ function updateTotalPrice() {
     totalCostAtFooter.innerText = `${0}`;
   }
 }
-const item = document.createElement("tr") 
+const item = document.createElement("tr");
 
 function addItemsToCart() {
   cart.forEach((element) => {
-    console.log(element);
-    tableBody.innerHTML += `
-    <tr class="cart-item">
-        <th scope="row">1</th>
-        <td><img src="${element.thumbnail}"
-                alt="" width="10%">
-                <span class="item-title">${element.title}</span>        
-        </td>
-        <td class="text-center">
-            <i class="minus bi bi-bag-dash-fill text-danger fs-3"></i>
-            <input type="number" name="itemQuantity" value="1" size="2">
-            <i class="plus bi bi-bag-plus-fill text-success fs-3"></i>
-    </td>
-    <td class="price text-center">
-        <span class="item-price">${element.price}</span>
-    </td>
-    <td>
-        <i class="remove-btn bi bi-x-square text-danger fs-2"></i>
-    </td>
-</tr>
-    `;
+    if (element != null) {
+      console.log(element);
+      tableBody.innerHTML += `
+      <tr class="cart-item">
+          <th scope="row">1</th>
+          <td><img src="${element.thumbnail}"
+                  alt="" width="10%">
+                  <span class="item-title">${element.title}</span>        
+          </td>
+          <td class="text-center">
+              <i class="minus bi bi-bag-dash-fill text-danger fs-3"></i>
+              <input type="number" name="itemQuantity" value="1" size="2">
+              <i class="plus bi bi-bag-plus-fill text-success fs-3"></i>
+      </td>
+      <td class="price text-center">
+          <span class="item-price">${element.price}</span>
+      </td>
+      <td>
+          <i id="${element.id}" class="remove-btn bi bi-x-square text-danger fs-2"></i>
+      </td>
+  </tr>
+      `;
+    }
   });
 
   updateTotalPrice();
@@ -73,9 +75,14 @@ function addItemsToCart() {
 tableBody.addEventListener("click", function (event) {
   // console.log(event.target);
   let clickedItem = event.target;
+
   if (clickedItem.classList.contains("remove-btn")) {
     clickedItem.parentElement.parentElement.remove();
     updateTotalPrice();
+    console.log(clickedItem);
+    console.log(`this is cliked ele ${clickedItem}`);
+    console.log(`this is cliked ele id ${clickedItem.id}`);
+    removeFromCartStorage(clickedItem.id);
   }
 });
 // function removeCartItem(event) {
@@ -129,11 +136,23 @@ function updateCartStorageQuantity(productId, quantity) {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 // itemTitle[0].innerHTML=`<span class="item-title">${products[2].title}</span>`
-
+// addItemToCartStorage(5);
 addItemToCartStorage(1);
-addItemToCartStorage(2);
-removeFromCartStorage(1);
+// addItemToCartStorage(29);
+// removeFromCartStorage(5);
+
+// addItemToCartStorage(2);
+// removeFromCartStorage(1);
 addItemsToCart();
+for (let i = 0; i < itemQuantityInput.length; i++) {
+  itemQuantityInput[i].addEventListener("change", function (event) {
+    let targetElement = event.target;
+    if (isNaN(targetElement.value) || targetElement.value <= 0) {
+      targetElement.value = 1;
+    }
+    updateTotalPrice();
+  });
+}
 
 //? min 26 for add items to cart
 //? min 30 for check if the item added twice
