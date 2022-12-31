@@ -14,7 +14,7 @@ function addItemToCartStorage(productId) {
   }
   localStorage.setItem("cart", JSON.stringify(cart));
 }
-fetch("https://dummyjson.com/products")
+fetch("json_data.json")
   .then((response) => response.json())
   .then(function (data) {
     localStorage.setItem("my products", JSON.stringify(data));
@@ -53,7 +53,7 @@ function furnitures() {
 
   var productContainer = document.getElementById("products_container");
   furniture.forEach((product) => {
-    let item = `<a href="/pages/item.html#${product.id}" class="nav-link"><div class="row bg-white pb-3 pt-3">
+    let item = `<a href="/item#${product.id}" class="nav-link"><div class="row bg-white pb-3 pt-3">
   <img src="${product.thumbnail}" alt="" class="col-lg-9 col-sm-12" style="height: 500px;">
   <div class="col-lg-3 col-sm-12  pt-2">
     <p class="pt-5" style="color: rgb(194, 167, 167);">FEATURED PRODUCT</p>
@@ -81,7 +81,7 @@ function Laptops() {
     console.log();
   });
   laptop.forEach((product) => {
-    let item = `<a href="/pages/item.html#${product.id}" class="nav-link">
+    let item = `<a href="/item#${product.id}" class="nav-link">
     <div class="row bg-white pb-3 pt-3">
     <img src="${product.thumbnail}" alt="" class="col-lg-9 col-sm-12" style="height: 500px;">
     <div class="col-lg-3 col-sm-12  pt-2">
@@ -106,7 +106,7 @@ function phone() {
 
   var productContainer = document.getElementById("products_container");
   furniture.forEach((product) => {
-    let item = `<a href="/pages/item.html#${product.id}" class="nav-link"><div class="row bg-white pb-3 pt-3">
+    let item = `<a href="/item#${product.id}" class="nav-link"><div class="row bg-white pb-3 pt-3">
     <img src="${product.thumbnail}" alt="" class="col-lg-9 col-sm-12" style="height: 500px;">
     <div class="col-lg-3 col-sm-12  pt-2">
       <p class="pt-5" style="color: rgb(194, 167, 167);">FEATURED PRODUCT</p>
@@ -130,7 +130,7 @@ function fragrances() {
 
   var productContainer = document.getElementById("products_container");
   furniture.forEach((product) => {
-    let item = `<a href="/pages/item.html#${product.id}" class="nav-link"><div class="row bg-white pb-3 pt-3">
+    let item = `<a href="/item#${product.id}"class="nav-link"><div class="row bg-white pb-3 pt-3">
       <img src="${product.thumbnail}" alt="" class="col-lg-9 col-sm-12" style="height: 500px;">
       <div class="col-lg-3 col-sm-12  pt-2">
         <p class="pt-5" style="color: rgb(194, 167, 167);">FEATURED PRODUCT</p>
@@ -153,7 +153,7 @@ function skincare() {
 
   var productContainer = document.getElementById("products_container");
   furniture.forEach((product) => {
-    let item = `<a href="/pages/item.html#${product.id}" class="nav-link"><div class="row bg-white ">
+    let item = `<a href="/item#${product.id}"class="nav-link"><div class="row bg-white ">
         <img src="${product.thumbnail}" alt="" class="col-lg-7 col-sm-12" style="height: 500px;">
         <div class="col-lg-3 col-sm-12  ">
           <p class="pt-5" style="color: rgb(194, 167, 167);">FEATURED PRODUCT</p>
