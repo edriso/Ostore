@@ -10,6 +10,10 @@ fetch("../js/json_data.json")
       return item.id == productId;
     });
 
+    if (!sProduct) {
+      window.location.replace("../pages/404.html");
+    }
+
     let htmlProduct = `<div class="text-container">
  
 <div class="allText">
