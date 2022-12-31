@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Source+Code+Pro:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <title>Olive | Signup</title>
+    <title>Ostory | Signup</title>
   </head>
   <body>
     <div class="main">  	
@@ -43,7 +43,7 @@
                   <!-- ......................................................................................................... -->
               <input name="confirm"  type="password" onChange="onChange('password',this.id)" placeholder="confirm password" id="confirm" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" >
             <!-- <button id="sign-up-button">Sign up</button> -->
-            <div class="show" style="color: white;"><input type="checkbox" onclick="Show1()" style="    width: 20px; margin: 0; ">show password</div>
+            <div class="show" style="color: rgb(28, 23, 23);"><input type="checkbox" onclick="Show1()" style="    width: 20px; margin: 0; ">show password</div>
             <input type="submit" id="sign-up-button" value="Submit">
           </form>
         </div>
@@ -64,6 +64,8 @@
     <script src="../js/login.js"></script>
     <script src="../js/signup.js"></script>
     <script>
+  
+  
       // Event Listener For Button sign up.
       document.getElementById("signup-form").addEventListener("submit", function(event){
           event.preventDefault();
@@ -71,7 +73,8 @@
         const password = document.getElementById("password").value;
         const email = document.getElementById("email").value;
         const log = document.getElementById("log")
-        signup({userName, password, email});
+        const id = new Date().valueOf();
+        signup({userName, password , email , id});
         document.getElementById("signup-form").reset()
         log.click()
       });
@@ -82,10 +85,10 @@
           event.preventDefault();
         const email = document.getElementById("login-email").value;
         const password = document.getElementById("login-password").value;
-        login({email, password });
+        const id = new Date().valueOf();
+        login({email, password , id });
         document.getElementById("login-form").reset()
       });
-  
     </script>
   </body>
 </html>
