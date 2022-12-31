@@ -44,3 +44,5 @@ Team #1's e-commerce project that made using JS.
   - Practiced on: Project Structuring, Creating workspace on Trello, Thinking as a fullstack developer, Git, and Github
 
 ##### Used API: [https://dummyjson.com/products](https://dummyjson.com/products)
+
+#### [Live Preview](https://edriso.github.io/Ostore/)
