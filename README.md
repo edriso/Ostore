@@ -1,6 +1,23 @@
 # Ostore
 
-Mini E-commerce Store Website
+Team #1's e-commerce project that made using JS.
+
+---
+
+### Key Features
+
+- User can login or signup
+- User can preview website but only can buy items if logged in
+
+### Things We Practiced On
+
+- JavaScript / Bootstrap
+- Working with APIs
+- LocalStorage / SessionStorage
+- Team work
+- Thinking as a fullstack dev
+- Writting better README file
+- Project Structuring
 
 #### Colors
 
