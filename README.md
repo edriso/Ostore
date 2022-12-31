@@ -2,35 +2,45 @@
 
 Team #1's e-commerce project that made using JS.
 
----
-
 ### Key Features
 
-- User can login or signup
-- User can preview website but only can buy items if logged in
+- User can login or signup.
+- User can preview 5 categories.
+- Details page for each item exists in the store.
+- Only loggedin users can add items to cart, and buy items.
 
-### Things We Practiced On
+### Snapshot of Trello
 
-- JavaScript / Bootstrap
-- Working with APIs
-- LocalStorage / SessionStorage
-- Team work
-- Thinking as a fullstack dev
-- Writting better README file
-- Project Structuring
+![Project Management](./images/trello.png)
 
-#### Colors
+### Team Roles
 
-font: #393e46;
-Background: #f7f7f7;
-bg-darker: #f2e7d5;
-primary-color: #6d9886;
+- ##### Esraa Hussein
 
-#### Font-Family
+  - Working on Homepage, Categories pages & Navbar, Footer
+  - Practiced on: Bootstrap, CSS, HTML, JS, Fetching products from an API, Storing and getting data using localStorage, Filtering, ForEach, Debugging using console.log(), Git, and Github
 
-Regular: "Source Code Pro", monospace;
-Bold: "Raleway", sans-serif;
+- ##### Ahmed Mohamed Hassan
 
-#### Rules
+  - Working on Login, Signup pages
+  - Practiced on: Bootstrap, Form validation using regex, Styling Form errors, LocalStorage, SessionStorage, Handling object error in case was null, Git, and Github
 
-CSS format: OOCSS
+- ##### Abdelrahman Mahmoud
+
+  - Finding an API
+  - Working on Cart, Checkout, 404 pages
+  - Practiced on: Bootstrap, LocalStorage, SessionStorage, JavaScript, Filtering data, Handling object error in case was null, Git, and Github
+
+- ##### Abdelrahman Mohamed Moussa
+
+  - Working on Item-details page
+  - Practiced on: HTML, CSS, JS, LocalStorage, SessionStorage, Git, and Github
+
+- ##### Mohamed Idris
+  - Working on About, Contact pages
+  - Supporting the team in case of stuck
+  - Practiced on: Project Structuring, Creating workspace on Trello, Thinking as a fullstack developer, Git, and Github
+
+##### Used API
+
+[https://dummyjson.com/products](https://dummyjson.com/products)
