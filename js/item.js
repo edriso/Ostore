@@ -23,9 +23,6 @@ fetch("../js/json_data.json")
 <div class="cart">
 <a><button class="btn">Add to cart</button><a>
 </div>
-<div class="garag">
-<div >Button Clicked <span id="display">0</span> Times </div>
-</div>
 </div>
 <img class="sneaker" src="${sProduct?.thumbnail}">
 </div>`;
@@ -33,11 +30,7 @@ fetch("../js/json_data.json")
     document.querySelector(".content-container").innerHTML = htmlProduct;
   });
 
-var count = 0;
-var btn = document.getElementById("btn");
-var disp = document.getElementById("display");
 let loginStorageId = sessionStorage.getItem("loggedUserId");
-
 document.querySelector(".content-container").onclick = function (e) {
   if (e.target.classList.contains("btn")) {
     if (!localStorage.getItem("cart")) {
