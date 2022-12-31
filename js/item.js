@@ -1,4 +1,4 @@
-let productId = window.location.hash;
+let productId = window.location.hash.slice(1);
 
 /*fetching data*/
 let sProduct;
@@ -7,20 +7,15 @@ fetch("../js/json_data.json")
   .then((data) => {
     let products = data;
     sProduct = products.find((item) => {
-      return (item.id = productId);
+      return item.id == productId;
     });
-    console.log(products);
-    console.log(sProduct);
 
     let htmlProduct = `<div class="text-container">
  
 <div class="allText">
-<h1> ${sProduct.title}</h1>
-<p>${sProduct.description}</p>
-<p class="price">$${sProduct.price}</p>
-
-
-
+<h1> ${sProduct?.title}</h1>
+<p>${sProduct?.description}</p>
+<p class="price">$${sProduct?.price}</p>
 <div class="cart">
 <a><button class="btn">Add to cart</button><a>
 </div>
@@ -28,9 +23,9 @@ fetch("../js/json_data.json")
 <div >Button Clicked <span id="display">0</span> Times </div>
 </div>
 </div>
-<img class="sneaker" src="${sProduct.thumbnail}">
-
+<img class="sneaker" src="${sProduct?.thumbnail}">
 </div>`;
+
     document.querySelector(".content-container").innerHTML = htmlProduct;
   });
 
@@ -57,26 +52,4 @@ document.querySelector(".content-container").onclick = function (e) {
 
     console.log(sProduct);
   }
-
-  //   count++;
-  //   disp.innerHTML = count;
 };
-
-/*esraa & abdalrhman
-function addItemToCartStorage(productId) {
-  let prod = products.find(function (item) {
-    return item.id == productId;
-  });
-
-  if (cart.length == 0) {
-    cart.push(prod);
-  } else {
-    let result = cart.find((element) => element?.id == productId);
-    if (result === undefined) {
-      cart.push(prod);
-    } else{
-      alert("you already purchased this product")
-    }
-  }
-  localStorage.setItem("cart", JSON.stringify(cart));
-}*/
