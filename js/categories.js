@@ -14,18 +14,17 @@ function addItemToCartStorage(productId) {
   }
   localStorage.setItem("cart", JSON.stringify(cart));
 }
-fetch("json_data.json")
+fetch("../js/json_data.json")
   .then((response) => response.json())
   .then(function (data) {
     localStorage.setItem("my products", JSON.stringify(data));
     if (!localStorage.getItem("cart")) {
       localStorage.setItem("cart", "[]");
     }
-    console.log(data);
   });
 
 //variables to hold the data
-let products = JSON.parse(localStorage.getItem("my products")).products;
+let products = JSON.parse(localStorage.getItem("my products"));
 let cart = JSON.parse(localStorage.getItem("cart"));
 
 function addItemToCartStorage(productId) {
@@ -77,9 +76,9 @@ function Laptops() {
     return item.category == "laptops";
   });
   var productContainer = document.getElementById("products_container");
-  productContainer.addEventListener("click", function () {
-    console.log();
-  });
+  // productContainer.addEventListener("click", function () {
+  //   console.log();
+  // });
   laptop.forEach((product) => {
     let item = `<a href="/pages/item.html#${product.id}" class="nav-link">
     <div class="row bg-white pb-3 pt-3">
@@ -100,7 +99,7 @@ function Laptops() {
 }
 
 function phone() {
-  var furniture = products.filter(function (item) {
+  var furniture = products?.filter(function (item) {
     return item.category == "smartphones";
   });
 
@@ -179,7 +178,6 @@ function localStorageCart() {
       var selectedProduct = products.find(function (item) {
         return item.id == productId;
       });
-      console.log(selectedProduct);
       cart.push(selectedProduct);
       localStorage.setItem("cart", JSON.stringify(cart));
     });

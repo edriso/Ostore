@@ -9,6 +9,9 @@ let totalCostAtNav = document.querySelectorAll(".cost")[0];
 let totalCostAtFooter = document.querySelectorAll(".cost")[1];
 let itemQuantityInput = document.querySelectorAll("input[name=itemQuantity]");
 
+if (!sessionStorage.getItem("loggedUserId")) {
+  window.location.href = "../pages/signup.html";
+}
 
 function updateTotalPrice() {
   cartItemRow = document.querySelectorAll(".cart-item");
@@ -18,12 +21,10 @@ function updateTotalPrice() {
   let total = 0;
   if (cartItemRow.length) {
     for (let i = 0; i < cartItemRow.length; i++) {
-      console.log(cartItemRow);
       cartItemRow[i];
       let price = parseFloat(itemPrice[i].innerText);
       let quantity = parseFloat(itemQuantityInput[i].value);
       total += price * quantity;
-      console.log(total);
       totalCostAtNav.innerText = `${total} $`;
       totalCostAtFooter.innerText = `${total} $`;
     }
@@ -38,7 +39,6 @@ function addItemsToCart() {
   cart.forEach((element) => {
     let itemRowNumber = document.querySelectorAll(".cart-item").length;
     if (element != null) {
-      console.log(element);
       tableBody.innerHTML += `
       <tr class="cart-item">
           <th scope="row">${itemRowNumber + 1}</th>
@@ -70,13 +70,11 @@ function addItemsToCart() {
 }
 
 tableBody.addEventListener("click", function (event) {
-  // console.log(event.target);
   let clickedItem = event.target;
 
   if (clickedItem.classList.contains("remove-btn")) {
     clickedItem.parentElement.parentElement.remove();
     updateTotalPrice();
-    console.log(clickedItem);
     removeFromCartStorage(clickedItem.id);
     checkCartIsEmpty();
   }
@@ -94,7 +92,6 @@ fetch("/json_data.json")
 //variables to hold the data
 let products = JSON.parse(localStorage.getItem("my products"));
 let cart = JSON.parse(localStorage.getItem("cart"));
-// console.log(products[0].title);
 
 // function addItemToCartStorage(productId) {
 //   let prod = products.find(function (item) {
@@ -116,7 +113,6 @@ let cart = JSON.parse(localStorage.getItem("cart"));
 // }
 
 function removeFromCartStorage(productId) {
-  console.log(cart);
   let temp = cart.filter((item) => item?.id != productId);
   localStorage.setItem("cart", JSON.stringify(temp));
 }

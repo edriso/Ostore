@@ -53,7 +53,5 @@ document.querySelector(".content-container").onclick = function (e) {
         window.location.href = "../pages/signup.html";
       }
     } else alert("Item already exists");
-
-    console.log(sProduct);
   }
 };
