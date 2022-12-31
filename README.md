@@ -13,6 +13,8 @@ Team #1's e-commerce project that made using JS.
 
 ![Project Management](./images/trello.png)
 
+---
+
 ### Team Roles
 
 - ##### Esraa Hussein
@@ -41,6 +43,4 @@ Team #1's e-commerce project that made using JS.
   - Supporting the team in case of stuck
   - Practiced on: Project Structuring, Creating workspace on Trello, Thinking as a fullstack developer, Git, and Github
 
-##### Used API
-
-[https://dummyjson.com/products](https://dummyjson.com/products)
+##### Used API: [https://dummyjson.com/products](https://dummyjson.com/products)
