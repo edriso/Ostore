@@ -37,6 +37,7 @@ fetch("../js/json_data.json")
 var count = 0;
 var btn = document.getElementById("btn");
 var disp = document.getElementById("display");
+let loginStorageId = sessionStorage.getItem("loggedUserId");
 
 document.querySelector(".content-container").onclick = function (e) {
   if (e.target.classList.contains("btn")) {
@@ -46,8 +47,12 @@ document.querySelector(".content-container").onclick = function (e) {
     let cartItems = JSON.parse(localStorage.getItem("cart"));
 
     if (!cartItems.some((item) => item.id == sProduct.id)) {
-      cartItems.push(sProduct);
-      localStorage.setItem("cart", JSON.stringify(cartItems));
+      if (loginStorageId) {
+        cartItems.push(sProduct);
+        localStorage.setItem("cart", JSON.stringify(cartItems));
+      } else {
+        window.location.href = "../pages/signup.html";
+      }
     } else alert("Item already exists");
 
     console.log(sProduct);
@@ -56,6 +61,7 @@ document.querySelector(".content-container").onclick = function (e) {
   //   count++;
   //   disp.innerHTML = count;
 };
+
 /*esraa & abdalrhman
 function addItemToCartStorage(productId) {
   let prod = products.find(function (item) {
