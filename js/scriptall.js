@@ -188,3 +188,4 @@ for (var i of priceBtn){
 
 }
       }
+      

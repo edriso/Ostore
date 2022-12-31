@@ -12,7 +12,7 @@ function login(user){
     if(isExist){
         // alert(`Hello ${JSON.stringify(isExist.email)}`);
         window.sessionStorage.setItem("loggedUserId",user.id)
-        window.location.href = "../index.html";
+        window.location.href = "../pages/index.html";
     }
     else 
         alert(`You Are Not Login
