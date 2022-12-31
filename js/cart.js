@@ -9,17 +9,6 @@ let totalCostAtNav = document.querySelectorAll(".cost")[0];
 let totalCostAtFooter = document.querySelectorAll(".cost")[1];
 let itemQuantityInput = document.querySelectorAll("input[name=itemQuantity]");
 
-//to update the quantity on change it and not accepting -ve
-for (let i = 0; i < itemQuantityInput.length; i++) {
-  itemQuantityInput[i].addEventListener("change", function (event) {
-    let targetElement = event.target;
-    if (isNaN(targetElement.value) || targetElement.value <= 0) {
-      targetElement.value = 1;
-    }
-    updateTotalPrice();
-  });
-}
-
 //to not adding the same item to the cart
 for (let i = 0; i < itemTitle.length; i++) {
   //check if the item title in the cart row = the item title from the add to cart
@@ -29,59 +18,78 @@ for (let i = 0; i < itemTitle.length; i++) {
   }
 }
 
-for (let i = 0; i < removeBtn.length; i++) {
-  removeBtn[i].addEventListener("click", function (event) {
-    event.target.parentElement.parentElement.remove();
-    updateTotalPrice();
-  });
-}
-
 function updateTotalPrice() {
+  cartItemRow = document.querySelectorAll(".cart-item");
+  itemPrice = document.querySelectorAll(".item-price");
+  itemQuantityInput = document.querySelectorAll("input[name=itemQuantity]");
+
   let total = 0;
-  for (let i = 0; i < cartItemRow.length; i++) {
-    cartItemRow[i];
-    let price = parseFloat(itemPrice[i].innerText);
-    let quantity = parseFloat(itemQuantityInput[i].value);
-    total += price * quantity;
-    console.log(total);
-    totalCostAtNav.innerText = `${total} $`;
-    totalCostAtFooter.innerText = `${total} $`;
+  if (cartItemRow.length) {
+    for (let i = 0; i < cartItemRow.length; i++) {
+      console.log(cartItemRow);
+      cartItemRow[i];
+      let price = parseFloat(itemPrice[i].innerText);
+      let quantity = parseFloat(itemQuantityInput[i].value);
+      total += price * quantity;
+      console.log(total);
+      totalCostAtNav.innerText = `${total} $`;
+      totalCostAtFooter.innerText = `${total} $`;
+    }
+  } else {
+    totalCostAtNav.innerText = `${0}`;
+    totalCostAtFooter.innerText = `${0}`;
   }
 }
+const item = document.createElement("tr");
 
 function addItemsToCart() {
-  products.forEach((element, i) => {
-    tableBody.innerHTML += `
-    <tr class="cart-item">
-        <th scope="row">1</th>
-        <td><img src="${element[i].thumbnail}"
-                alt="" width="10%">
-                <span class="item-title">${element[i].title}</span>        
-        </td>
-        <td class="text-center">
-            <i class="minus bi bi-bag-dash-fill text-danger fs-3"></i>
-            <input type="number" name="itemQuantity" value="1" size="2">
-            <i class="plus bi bi-bag-plus-fill text-success fs-3"></i>
-    </td>
-    <td class="price text-center">
-        <span class="item-price">10</span>
-    </td>
-    <td>
-        <i class="remove-btn bi bi-x-square text-danger fs-2"></i>
-    </td>
-</tr>
-    `;
+  cart.forEach((element) => {
+    let itemRowNumber = document.querySelectorAll(".cart-item").length;
+    if (element != null) {
+      console.log(element);
+      tableBody.innerHTML += `
+      <tr class="cart-item">
+          <th scope="row">${itemRowNumber + 1}</th>
+          <td><img src="${element.thumbnail}"
+                  alt="" width="10%">
+                  <span class="item-title">${element.title}</span>        
+          </td>
+          <td class="text-center">
+              <i class="minus bi bi-bag-dash-fill text-danger fs-3"></i>
+              <input id="${
+                element.id
+              }" type="number" name="itemQuantity" value="${element.quantity}" size="2">
+              <i class="plus bi bi-bag-plus-fill text-success fs-3"></i>
+      </td>
+      <td class="price text-center">
+          <span class="item-price">${element.price}</span>
+      </td>
+      <td>
+          <i id="${
+            element.id
+          }" class="remove-btn bi bi-x-square text-danger fs-2"></i>
+      </td>
+  </tr>
+      `;
+    }
   });
 
   updateTotalPrice();
 }
 
-// function removeCartItem(event) {
-//   console.log("jjjjjj");
-//   event.target.parent;
-// }
+tableBody.addEventListener("click", function (event) {
+  // console.log(event.target);
+  let clickedItem = event.target;
 
-fetch("json_data.json")
+  if (clickedItem.classList.contains("remove-btn")) {
+    clickedItem.parentElement.parentElement.remove();
+    updateTotalPrice();
+    console.log(clickedItem);
+    removeFromCartStorage(clickedItem.id);
+  }
+});
+
+fetch("/json_data.json")
   .then((response) => response.json())
   .then(function (data) {
     localStorage.setItem("my products", JSON.stringify(data));
@@ -93,8 +101,9 @@ fetch("json_data.json")
 //variables to hold the data
 let products = JSON.parse(localStorage.getItem("my products"));
 let cart = JSON.parse(localStorage.getItem("cart"));
-console.log(products[0].title);
+// console.log(products[0].title);
 
+//*esraa
 function addItemToCartStorage(productId) {
   let prod = products.find(function (item) {
     return item.id == productId;
@@ -103,7 +112,8 @@ function addItemToCartStorage(productId) {
   if (cart.length == 0) {
     cart.push(prod);
   } else {
-    let result = cart.find((element) => element.id == productId);
+    // console.log(cart);
+    let result = cart.find((element) => element?.id == productId);
     if (result === undefined) {
       cart.push(prod);
     }
@@ -113,28 +123,39 @@ function addItemToCartStorage(productId) {
 
 function removeFromCartStorage(productId) {
   console.log(cart);
-  let temp = cart.filter((item) => item.id != productId);
+  let temp = cart.filter((item) => item?.id != productId);
   localStorage.setItem("cart", JSON.stringify(temp));
 }
 
 function updateCartStorageQuantity(productId, quantity) {
   for (let product of cart) {
-    if (product.id == productId) {
+    if (product?.id == productId) {
       product.quantity = quantity;
     }
   }
   localStorage.setItem("cart", JSON.stringify(cart));
 }
-// itemTitle[0].innerHTML=`<span class="item-title">${products[2].title}</span>`
 
 addItemToCartStorage(1);
-addItemToCartStorage(2);
-removeFromCartStorage(1);
+addItemToCartStorage(3);
+addItemsToCart();
 
-//? min 26 for add items to cart
-//? min 30 for check if the item added twice
-//? min 36 if you have a problem with new add buttons
+for (let i = 0; i < itemQuantityInput.length; i++) {
+  itemQuantityInput[i].addEventListener("change", function (event) {
+    let targetElement = event.target;
+    if (isNaN(targetElement.value) || targetElement.value <= 0) {
+      targetElement.value = 1;
+    }
+    let quantity = parseInt(targetElement.value)
+    updateTotalPrice();
+    updateCartStorageQuantity(targetElement.id, quantity);
+  });
+}
+
+//! 1- TODO : update quantity attribute
+//! 2- TODO : check bootstrap
+//! in case of updating price error, check the above for loop (ask idris)
 // TODO : REPlACE Input field by add & remove buttons
-// TODO : Add 2 decimal to the price
+// TODO 3- : Add 2 decimal to the price
 // TODO : Clean the code (ex. add variables & methods)
 // TODO : maybe you need to add Ready state

@@ -11,8 +11,8 @@
     <!-- Css -->
     <!-- <link rel="stylesheet" href="../css/layout.css" /> -->
     <!-- Page style -->
-    <link rel="stylesheet" href="../css/signup.css">
-    
+    <link rel="stylesheet" href="../css/signup.css" />
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -67,7 +67,9 @@
   
   
       // Event Listener For Button sign up.
-      document.getElementById("signup-form").addEventListener("submit", function(event){
+      document
+        .getElementById("signup-form")
+        .addEventListener("submit", function (event) {
           event.preventDefault();
         const userName = document.getElementById("userName").value;
         const password = document.getElementById("password").value;
@@ -80,8 +82,10 @@
       });
       
       // Event Listener For Button login.
-    /*--------------------  login  ----------------------------------*/
-      document.getElementById("login-form").addEventListener("submit", function(event){
+      /*--------------------  login  ----------------------------------*/
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", function (event) {
           event.preventDefault();
         const email = document.getElementById("login-email").value;
         const password = document.getElementById("login-password").value;
