@@ -48,7 +48,7 @@ document.querySelector(".content-container").innerHTML=htmlProduct
             localStorage.setItem("cart", JSON.stringify(cartItems));
 
           }
-          else alert("Already exists")
+          else alert("Item already exists")
 
         console.log(sProduct);
 
