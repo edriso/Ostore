@@ -25,81 +25,139 @@
 
 <body onload="Laptops()">
     <!-- Nav Bar -->
-    <nav style="background-color: rgb(81, 156, 150);" class="navbar navbar-dark  fixed-top">
-        <div class="container-fluid">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <a class="bi bi-search text-dark" href="#" style="font-size: 21px;"></a>
-                          </form>
-          <a class="navbar-brand pe-5" href="#">
-             <h3>Ostore</h3></a>
-            <div>
-              <a style="font-size: 23px;"class="bi bi-person text-dark pe-3"href="#"></a>
+    <nav
+      style="background-color: rgb(81, 156, 150)"
+      class="navbar navbar-dark fixed-top"
+    >
+      <div class="container-fluid">
+        <form class="d-flex" role="search">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <a
+            class="bi bi-search text-dark"
+            href="#"
+            style="font-size: 21px"
+          ></a>
+        </form>
+        <a class="navbar-brand pe-5" href="../index.html"> <h3>Ostore</h3></a>
+        <div>
+          <a
+            style="font-size: 23px"
+            class="bi bi-person text-dark pe-3"
+            href="#"
+          ></a>
 
-                <a style="font-size: 19px;"class="bi bi-heart text-dark pe-3 font-weight-bold" href="#"></a>
-                <a  style="font-size: 19px;" class="bi bi-bag text-dark pe-2" href="#"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">          
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-            </div>
-          
-          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-            <div class="offcanvas-header">
-              <a style="font-size: 27px;" class="bi bi-x text-dark " id="close" href="#"></a>              
-              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-              <div class="  pe-3 text-dark row">
-                <div class="nav-item col-lg-6">
-                  <p class="fw-bold">Language</p>
-                  <a class="nav-link active  text-secondary" aria-current="page" href="#">English</a>
-                  <a class="nav-link active text-secondary" aria-current="page" href="#">French</a>
-                  <a class="nav-link active text-secondary" aria-current="page" href="#">Arabic</a>
-                </div>
-                <div class="nav-item col-lg-6">
-                  <p class="fw-bold">Currency</p>
-                  <a class="nav-link text-secondary " href="#">USD - US Dollar</a>
-                  <a class="nav-link text-secondary " href="#">Euro</a>
-                  <a class="nav-link text-secondary " href="#">Pound</a>
+          <a
+            style="font-size: 19px"
+            class="bi bi-heart text-dark pe-3 font-weight-bold"
+            href="#"
+          ></a>
+          <a
+            style="font-size: 19px"
+            class="bi bi-bag text-dark pe-2"
+            href="#"
+          ></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasDarkNavbar"
+            aria-controls="offcanvasDarkNavbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
 
-                </div>
+        <div
+          class="offcanvas offcanvas-end text-bg-dark"
+          tabindex="-1"
+          id="offcanvasDarkNavbar"
+          aria-labelledby="offcanvasDarkNavbarLabel"
+        >
+          <div class="offcanvas-header">
+            <a
+              style="font-size: 27px"
+              class="bi bi-x text-dark"
+              id="close"
+              href="#"
+            ></a>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <div class="pe-3 text-dark row">
+              <div class="nav-item col-lg-6">
+                <p class="fw-bold">Categories</p>
+                <a
+                  class="nav-link active text-secondary"
+                  aria-current="page"
+                  href="./pages/furniture.html"
+                  >Furniture</a
+                >
+                <a
+                  class="nav-link active text-secondary"
+                  aria-current="page"
+                  href="./pages/phone.html"
+                  >Mobile phones</a
+                >
+                <a
+                  class="nav-link active text-secondary"
+                  aria-current="page"
+                  href="./pages/skincare.html"
+                  >Skincare</a
+                >
+                <a
+                  class="nav-link active text-secondary"
+                  aria-current="page"
+                  href="./pages/Laptops.html"
+                  >Laptops</a
+                >
+                <a
+                  class="nav-link active text-secondary"
+                  aria-current="page"
+                  href="./pages/fragrances.html"
+                  >Fragrances</a
+                >
+              </div>
+              <div class="nav-item col-lg-6">
+                <p class="fw-bold">Other Pages</p>
+                <a class="nav-link text-secondary" href="./pages/cart.html"
+                  >Cart</a
+                >
+                <a class="nav-link text-secondary" href="./pages/about.html"
+                  >About Us</a
+                >
+                <a class="nav-link text-secondary" href="./pages/contact.html"
+                  >Contact Us</a
+                >
+              </div>
 
-                <div class="nav-item dropdown  ps-2">
-                  <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                   Home
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-primary ps-2" style="background-color: rgb(81, 156, 150);">
-                    <div><a class="dropdown-item text-white " href="../pages/furniture.html">Home V1 - Furniture</a></div>
-                    <div><a class="dropdown-item text-white" href="../pages/phone.html">Home V2 - Mobile phones</a></div>
-                    <div><a class="dropdown-item text-white" href="../pages/skincare.html">Home V3 - Skincare</a></div>
-                    <div><a class="dropdown-item text-white" href="../pages/Laptops.html">Home V4 - Laptops</a></div>
-                    <div><a class="dropdown-item text-white" href="../pages/fragrances.html">Home V5 - Fragrances</a></div>
-                 
-                    </div>
-                    </div>
-                  
-                        <div class="">
-                          <p class=" ps-3 pt-4 fw-bold">Contact Us</p>
-                          <p class="text-secondary ps-3">69 Halsey St, Ny 10002, New York, <br> United States <br>
-                            support.center@helendo.co
-                            (0091) 8547 632521</p>
-                        </div>
-                        <div class="d-flex justify-content-lg-around pt-4">
-                          <p class="fw-bold">Follow US On Socials</p>
-                          <i class="bi bi-facebook"></i>
-                          <i class="bi bi-twitter"></i>
-
-                        </div>
-                        
-                        </div>
-                        <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">LogOut</a>
-
-                    </div>
-             
+              <!-- <div class="d-flex justify-content-lg-around pt-4">
+                <p class="fw-bold">Follow US On Socials</p>
+                <i class="bi bi-facebook"></i>
+                <i class="bi bi-twitter"></i>
+              </div> -->
+              <a
+                href="./pages/signup.html"
+                id="logout"
+                class="btn btn-secondary btn-sm"
+                role="button"
+                aria-pressed="true"
+                >LogOut</a
+              >
             </div>
           </div>
         </div>
-      </nav>
+      </div>
+    </nav>
       <!-- Slider -->
       <div id="carouselExampleCaptions" class="carousel slide p-5" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -187,7 +245,7 @@
       <div class="col-sm-12 col-lg-4 pb-5">
         <h3 class="pb-3">Address</h3>
         <div class="pb-3"> <i class="bi bi-geo-alt-fill"></i>
-          Ostore, Alexandria, Egypt 2022</div>
+          Ostore, Alexandria, Egypt 2023</div>
         <div class="pb-3"><i class="bi bi-telephone"></i> +47802839139</div>
         <div><a class="bi bi-facebook pe-3 text-dark" href="#"></a> 
           <a class="bi bi-twitter pe-3 text-dark" href="#"></a>
@@ -228,7 +286,7 @@
         </div>
     </div>
     
-    <p class="text-center pb-3">&#169;2022 Ostore. All Rights Reserved.</p>
+    <p class="text-center pb-3">&#169;2023 Ostore. All Rights Reserved.</p>
     
   </div>
 
