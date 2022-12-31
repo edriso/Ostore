@@ -9,14 +9,14 @@ let totalCostAtNav = document.querySelectorAll(".cost")[0];
 let totalCostAtFooter = document.querySelectorAll(".cost")[1];
 let itemQuantityInput = document.querySelectorAll("input[name=itemQuantity]");
 
-//to not adding the same item to the cart
-for (let i = 0; i < itemTitle.length; i++) {
-  //check if the item title in the cart row = the item title from the add to cart
-  if (itemTitle.innerText /* == title from home page */) {
-    alert("this item is already added to the cart");
-    // return;
-  }
-}
+// //to not adding the same item to the cart
+// for (let i = 0; i < cart.length; i++) {
+//   //check if the item title in the cart row = the item title from the add to cart
+//   if (cart.id /* == title from home page */) {
+//     alert("this item is already added to the cart");
+//     // return;
+//   }
+// }
 
 function updateTotalPrice() {
   cartItemRow = document.querySelectorAll(".cart-item");
@@ -58,7 +58,9 @@ function addItemsToCart() {
               <i class="minus bi bi-bag-dash-fill text-danger fs-3"></i>
               <input id="${
                 element.id
-              }" type="number" name="itemQuantity" value="${element.quantity}" size="2">
+              }" type="number" name="itemQuantity" value="${
+        element.quantity
+      }" size="2">
               <i class="plus bi bi-bag-plus-fill text-success fs-3"></i>
       </td>
       <td class="price text-center">
@@ -86,6 +88,7 @@ tableBody.addEventListener("click", function (event) {
     updateTotalPrice();
     console.log(clickedItem);
     removeFromCartStorage(clickedItem.id);
+    checkCartIsEmpty();
   }
 });
 
@@ -103,7 +106,7 @@ let products = JSON.parse(localStorage.getItem("my products"));
 let cart = JSON.parse(localStorage.getItem("cart"));
 // console.log(products[0].title);
 
-//*esraa
+//*esraa & abdalrhman
 function addItemToCartStorage(productId) {
   let prod = products.find(function (item) {
     return item.id == productId;
@@ -112,11 +115,13 @@ function addItemToCartStorage(productId) {
   if (cart.length == 0) {
     cart.push(prod);
   } else {
-    // console.log(cart);
     let result = cart.find((element) => element?.id == productId);
     if (result === undefined) {
       cart.push(prod);
     }
+    //  else {
+    //   alert("you already purchased this product");
+    // }
   }
   localStorage.setItem("cart", JSON.stringify(cart));
 }
@@ -136,8 +141,6 @@ function updateCartStorageQuantity(productId, quantity) {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-addItemToCartStorage(1);
-addItemToCartStorage(3);
 addItemsToCart();
 
 for (let i = 0; i < itemQuantityInput.length; i++) {
@@ -146,16 +149,23 @@ for (let i = 0; i < itemQuantityInput.length; i++) {
     if (isNaN(targetElement.value) || targetElement.value <= 0) {
       targetElement.value = 1;
     }
-    let quantity = parseInt(targetElement.value)
+    let quantity = parseInt(targetElement.value);
     updateTotalPrice();
     updateCartStorageQuantity(targetElement.id, quantity);
   });
 }
 
-//! 1- TODO : update quantity attribute
+function checkCartIsEmpty() {
+  let confirmationBtn = document.querySelector(".confirm-btn");
+  let cartItemRowLength = document.querySelectorAll(".cart-item").length;
+  // let cartLength = localStorage.getItem("cart").length;
+  if (cartItemRowLength == 0) {
+    confirmationBtn.setAttribute("disabled", "disabled");
+  }
+}
+
+checkCartIsEmpty();
+
 //! 2- TODO : check bootstrap
 //! in case of updating price error, check the above for loop (ask idris)
-// TODO : REPlACE Input field by add & remove buttons
 // TODO 3- : Add 2 decimal to the price
-// TODO : Clean the code (ex. add variables & methods)
-// TODO : maybe you need to add Ready state
