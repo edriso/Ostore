@@ -7,7 +7,7 @@
     <!-- Theme Color -->
     <meta name="theme-color" content="#6d9886" />
     <!-- Fav Icon -->
-    <link rel="icon" type="image/png" href="./images/logo.png" />
+    <!-- <link rel="icon" type="image/png" href="./images/logo.png" /> -->
     <!-- Css -->
     <!-- <link rel="stylesheet" href="../css/layout.css" /> -->
     <!-- Page style -->
@@ -23,76 +23,135 @@
     <title>Ostory | Signup</title>
   </head>
   <body>
-    <div class="main">  	
-      <input type="checkbox" id="chk" aria-hidden="true">
-        <!-- ........Signup form.......... -->
-  
-        <div class="signup" >
-          <form id="signup-form" action="" >
-            <label for="chk" aria-hidden="true">Sign up</label>
-            <input id="userName" type="text" name="txt" placeholder="User name" required="" pattern="^[a-z]{8,}">
-            <h5>Minimum eight characters,Usernames only smoll letter and no space</h5>
-            <!-- ......................................................................................................... -->
-            <input type="email" id="email" name="email" placeholder="Email" required="" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
-            <h5>The required Email may not include any special charaxters other than'@'sign</h5>
-                      <!-- ......................................................................................................... -->
-  
-            <input type="password" onChange="onChange(this.id,'confirm')" name="pswd" id="password" placeholder="Password" required="" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$">
-            <h5>Minimum eight characters, at least one uppercase letter, one lowercase letter and one number</h5>
-  
-                  <!-- ......................................................................................................... -->
-              <input name="confirm"  type="password" onChange="onChange('password',this.id)" placeholder="confirm password" id="confirm" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" >
-            <!-- <button id="sign-up-button">Sign up</button> -->
-            <div class="show" style="color: rgb(28, 23, 23);"><input type="checkbox" onclick="Show1()" style="    width: 20px; margin: 0; ">show password</div>
-            <input type="submit" id="sign-up-button" value="Submit">
-          </form>
-        </div>
-  
-        <!-- ..............login form................. -->
-  
-        <div class="login">
-          <form id="login-form" action="">
-            <label for="chk" aria-hidden="true" id="log">Login</label>
-            <input id="login-email" type="email" name="email" placeholder="Email" required="">
-            <input id="login-password" type="password" name="pswd" placeholder="Password" required="">
-            <div class="show" ><input type="checkbox" onclick="Show2()" style="    width: 20px; margin: 0;">show password</div>
-  
-            <input type="submit" id="login-button" value="Submit">
-          </form>
-        </div>
+    <div class="main">
+      <input type="checkbox" id="chk" aria-hidden="true" />
+      <!-- ........Signup form.......... -->
+
+      <div class="signup">
+        <form id="signup-form" action="">
+          <label for="chk" aria-hidden="true">Sign up</label>
+          <input
+            id="userName"
+            type="text"
+            name="txt"
+            placeholder="User name"
+            required=""
+            pattern="^[a-z]{8,}"
+          />
+          <h5>
+            Minimum eight characters,Usernames only smoll letter and no space
+          </h5>
+          <!-- ......................................................................................................... -->
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required=""
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+          />
+          <h5>
+            The required Email may not include any special charaxters other
+            than'@'sign
+          </h5>
+          <!-- ......................................................................................................... -->
+
+          <input
+            type="password"
+            onChange="onChange(this.id,'confirm')"
+            name="pswd"
+            id="password"
+            placeholder="Password"
+            required=""
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+          />
+          <h5>
+            Minimum eight characters, at least one uppercase letter, one
+            lowercase letter and one number
+          </h5>
+
+          <!-- ......................................................................................................... -->
+          <input
+            name="confirm"
+            type="password"
+            onChange="onChange('password',this.id)"
+            placeholder="confirm password"
+            id="confirm"
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+          />
+          <!-- <button id="sign-up-button">Sign up</button> -->
+          <div class="show" style="color: rgb(28, 23, 23)">
+            <input
+              type="checkbox"
+              onclick="Show1()"
+              style="width: 20px; margin: 0"
+            />show password
+          </div>
+          <input type="submit" id="sign-up-button" value="Submit" />
+        </form>
+      </div>
+
+      <!-- ..............login form................. -->
+
+      <div class="login">
+        <form id="login-form" action="">
+          <label for="chk" aria-hidden="true" id="log">Login</label>
+          <input
+            id="login-email"
+            type="email"
+            name="email"
+            placeholder="Email"
+            required=""
+          />
+          <input
+            id="login-password"
+            type="password"
+            name="pswd"
+            placeholder="Password"
+            required=""
+          />
+          <div class="show">
+            <input
+              type="checkbox"
+              onclick="Show2()"
+              style="width: 20px; margin: 0"
+            />show password
+          </div>
+
+          <input type="submit" id="login-button" value="Submit" />
+        </form>
+      </div>
     </div>
     <script src="../js/login.js"></script>
     <script src="../js/signup.js"></script>
     <script>
-  
-  
       // Event Listener For Button sign up.
       document
         .getElementById("signup-form")
         .addEventListener("submit", function (event) {
           event.preventDefault();
-        const userName = document.getElementById("userName").value;
-        const password = document.getElementById("password").value;
-        const email = document.getElementById("email").value;
-        const log = document.getElementById("log")
-        const id = new Date().valueOf();
-        signup({userName, password , email , id});
-        document.getElementById("signup-form").reset()
-        log.click()
-      });
-      
+          const userName = document.getElementById("userName").value;
+          const password = document.getElementById("password").value;
+          const email = document.getElementById("email").value;
+          const log = document.getElementById("log");
+          const id = new Date().valueOf();
+          signup({ userName, password, email, id });
+          document.getElementById("signup-form").reset();
+          log.click();
+        });
+
       // Event Listener For Button login.
       /*--------------------  login  ----------------------------------*/
       document
         .getElementById("login-form")
         .addEventListener("submit", function (event) {
           event.preventDefault();
-        const email = document.getElementById("login-email").value;
-        const password = document.getElementById("login-password").value;
-        const id = new Date().valueOf();
-        login({email, password , id });
-        document.getElementById("login-form").reset()
-      });
+          const email = document.getElementById("login-email").value;
+          const password = document.getElementById("login-password").value;
+          const id = new Date().valueOf();
+          login({ email, password, id });
+          document.getElementById("login-form").reset();
+        });
     </script>
   </body>
 </html>
