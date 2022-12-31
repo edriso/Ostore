@@ -36,7 +36,7 @@ function updateTotalPrice() {
 const item = document.createElement("tr");
 
 function addItemsToCart() {
-  cart.forEach((element) => {
+  cart?.forEach((element) => {
     let itemRowNumber = document.querySelectorAll(".cart-item").length;
     if (element != null) {
       tableBody.innerHTML += `
@@ -80,7 +80,7 @@ tableBody.addEventListener("click", function (event) {
   }
 });
 
-fetch("/json_data.json")
+fetch("../js/json_data.json")
   .then((response) => response.json())
   .then(function (data) {
     localStorage.setItem("my products", JSON.stringify(data));
