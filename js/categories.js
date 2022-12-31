@@ -166,20 +166,20 @@ function skincare() {
       </div></a>`;
     productContainer.innerHTML += item;
   });
-  localStorageCart();
+  // localStorageCart();
 }
 
-function localStorageCart() {
-  var priceBtn = document.querySelectorAll(".priceBtn");
+// function localStorageCart() {
+//   var priceBtn = document.querySelectorAll(".priceBtn");
 
-  for (var i of priceBtn) {
-    i.addEventListener("click", function (event) {
-      var productId = this.getAttribute("data-id");
-      var selectedProduct = products.find(function (item) {
-        return item.id == productId;
-      });
-      cart.push(selectedProduct);
-      localStorage.setItem("cart", JSON.stringify(cart));
-    });
-  }
-}
+//   for (var i of priceBtn) {
+//     i.addEventListener("click", function (event) {
+//       var productId = this.getAttribute("data-id");
+//       var selectedProduct = products.find(function (item) {
+//         return item.id == productId;
+//       });
+//       cart.push(selectedProduct);
+//       localStorage.setItem("cart", JSON.stringify(cart));
+//     });
+//   }
+// }
