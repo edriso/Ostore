@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fragrances</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+  />
+  <!-- cdn -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body onload="fragrances()">
+    <!-- Nav Bar -->
+    <nav style="background-color: rgb(81, 156, 150);" class="navbar navbar-dark  fixed-top">
+        <div class="container-fluid">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <a class="bi bi-search text-dark" href="#" style="font-size: 21px;"></a>
+                          </form>
+          <a class="navbar-brand pe-5" href="#">
+             <h3>Ostore</h3></a>
+            <div>
+              <a style="font-size: 23px;"class="bi bi-person text-dark pe-3"href="#"></a>
+
+                <a style="font-size: 19px;"class="bi bi-heart text-dark pe-3 font-weight-bold" href="#"></a>
+                <a  style="font-size: 19px;" class="bi bi-bag text-dark pe-2" href="#"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">          
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+            </div>
+          
+          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+              <a style="font-size: 27px;" class="bi bi-x text-dark " id="close" href="#"></a>              
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <div class="  pe-3 text-dark row">
+                <div class="nav-item col-lg-6">
+                  <p class="fw-bold">Language</p>
+                  <a class="nav-link active  text-secondary" aria-current="page" href="#">English</a>
+                  <a class="nav-link active text-secondary" aria-current="page" href="#">French</a>
+                  <a class="nav-link active text-secondary" aria-current="page" href="#">Arabic</a>
+                </div>
+                <div class="nav-item col-lg-6">
+                  <p class="fw-bold">Currency</p>
+                  <a class="nav-link text-secondary " href="#">USD - US Dollar</a>
+                  <a class="nav-link text-secondary " href="#">Euro</a>
+                  <a class="nav-link text-secondary " href="#">Pound</a>
+
+                </div>
+                
+                <div class="nav-item dropdown  ps-2">
+                  <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                   Home
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-primary ps-2" style="background-color: rgb(81, 156, 150);">
+                    <div><a class="dropdown-item text-white " href="../pages/furniture.html">Home V1 - Furniture</a></div>
+                    <div><a class="dropdown-item text-white" href="../pages/phone.html">Home V2 - Mobile phones</a></div>
+                    <div><a class="dropdown-item text-white" href="../pages/skincare.html">Home V3 - Skincare</a></div>
+                    <div><a class="dropdown-item text-white" href="../pages/Laptops.html">Home V4 - Laptops</a></div>
+                    <div><a class="dropdown-item text-white" href="../pages/fragrances.html">Home V5 - Fragrances</a></div>
+                 
+                    </div>
+                    </div>
+                   
+                        <div class="">
+                          <p class=" ps-3 pt-4 fw-bold">Contact Us</p>
+                          <p class="text-secondary ps-3">69 Halsey St, Ny 10002, New York, <br> United States <br>
+                            support.center@helendo.co
+                            (0091) 8547 632521</p>
+                        </div>
+                        <div class="d-flex justify-content-lg-around pt-4">
+                          <p class="fw-bold">Follow US On Socials</p>
+                          <i class="bi bi-facebook"></i>
+                          <i class="bi bi-twitter"></i>
+
+                        </div>
+                        
+                        </div>
+                        <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">LogOut</a>
+
+                    </div>
+             
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- Slider -->
+      <div id="carouselExampleCaptions" class="carousel slide p-5" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner ">
+          <div class="carousel-item active">
+            <img style="height:  600px;" src="../images/2021-Last-5g-Mobile-Ultra-Phone-I12-PRO-Max-6-7-Inch-12GB-512GB-Android-Smartphone-10-Core-5g-Let-Phone-3-Camera-Mtk6889-Face-ID-Unlock-Mobile-Phone.jpg" class="d-block w-100" alt="...">
+           
+          </div>
+          <div class="carousel-item">
+            <img style="height: 600px;" src="../images/epilogi-aromatos.jpg" class="d-block w-100" alt="...">
+            
+          </div>
+          <div class="carousel-item">
+            <img  style="height: 600px;"  class="d-block w-100" alt="..." src="../images/best-perfume-fb.jpg">
+            
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    <!-- first element -->
+    <div class="container" id="products_container">
+    
+    </div>
+
+    <!-- Best Selling --> 
+    <div class="container">
+      <h2 class="text-center">Soon for sale</h2>
+      <hr style="margin-left: 45%; margin-right: 45%; height: 3px; color: rgb(255, 136, 0);">
+      <div class="row mt-2 justify-content-center">
+
+        <!-- first element in best selling -->
+        <div class="card text-white grid col-lg-3 ps-5 col-sm-11 p-5 me-5" style="border: none;">
+      <figure class="effect-roxy">
+      <img src="../images/contentImage (1).jfif" class="card-img" alt="img01" style="height: 380px">
+      <div class="card-img-overlay d-flex justify-content-around align-items-center ps-5">
+        <p class="card-text"><button class="rounded-circle " style="border: none; background-color: white; width: 40px; height: 40px;  font-size:20px;"><i class="bi bi-heart"></i>
+        </button></p>
+        <p class="card-text pb-3"><button id="item4"class="rounded-circle fw-bold" style="border: none; background-color: white; width: 40px; height: 40px;  font-size:20px;">+</button></p>
+      </div>
+    </figure>
+    </div>
+
+      <!-- second element in best selling -->
+    <div class="card text-white grid col-lg-3 ps-5 col-sm-11 p-5 me-5" style="border: none;">
+      <figure class="effect-roxy">
+      <img src="../images/contentImage.jfif" class="card-img" alt="img01" style="height: 380px">
+      <div class="card-img-overlay d-flex justify-content-around align-items-center ps-5">
+        <p class="card-text"><button class="rounded-circle " style="border: none; background-color: white; width: 40px; height: 40px;  font-size:20px;"><i class="bi bi-heart"></i>
+        </button></p>
+        <p class="card-text pb-3"><button id="item5"class="rounded-circle fw-bold" style="border: none; background-color: white; width: 40px; height: 40px;  font-size:20px;">+</button></p>
+      </div>
+    </figure>
+    </div>
+
+    <!-- third element in best selling -->
+    <div class="card text-white grid col-lg-3 ps-5 col-sm-11 p-5 me-5" style="border: none;">
+      <figure class="effect-roxy">
+      <img src="../images/baby-skincare-new-f92fa8a.jpg" class="card-img" alt="img01" style="height: 380px">
+      <div class="card-img-overlay d-flex justify-content-around align-items-center ps-5">
+        <p class="card-text"><button class="rounded-circle " style="border: none; background-color: white; width: 40px; height: 40px;  font-size:20px;"><i class="bi bi-heart"></i>
+        </button></p>
+        <p class="card-text pb-3"><button id="item6"class="rounded-circle fw-bold" style="border: none; background-color: white; width: 40px; height: 40px;  font-size:20px;">+</button></p>
+      </div>
+    </figure>
+    </div>
+
+  </div>
+  </div>
+
+  <!-- Final container --> 
+  <div style="background-color: rgb(219, 235, 234);">                           
+  <div class="container  pt-5" >
+    <div class="row">
+      <div class="col-sm-12 col-lg-4 pb-5">
+        <h3 class="pb-3">Address</h3>
+        <div class="pb-3"> <i class="bi bi-geo-alt-fill"></i>
+          Ostore, Alexandria, Egypt 2022</div>
+        <div class="pb-3"><i class="bi bi-telephone"></i> +47802839139</div>
+        <div><a class="bi bi-facebook pe-3 text-dark" href="#"></a> 
+          <a class="bi bi-twitter pe-3 text-dark" href="#"></a>
+          <a class="bi bi-instagram text-dark" href="#"></a></div>
+      </div>
+      <div class="col-sm-12 col-lg-4 pb-5 ">
+        <h3>Help & Information</h3>
+        <div><a class="text-dark nav-link" href="#"> Help & Contact Us</a></div>
+        <div><a class="text-dark nav-link" href="#"> What We Do</a></div>
+        <div><a class="text-dark nav-link" href="#">FAQ Page  </a></div>
+        <div><a class="text-dark nav-link" href="#">Contact Us</a></div>
+      </div>
+      <div class="col-sm-12 col-lg-4 pb-5 ps-4">
+        <h3>About Us</h3>
+        <div><a class="text-dark nav-link" href="#">About Us</a></div>
+        <div><a class="text-dark nav-link" href="#"> Returns & Refunds</a></div>
+        <div><a class="text-dark nav-link" href="#"> Online Stores  </a></div>
+        <div><a class="text-dark nav-link" href="#"> Terms & Conditions</a></div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="d-flex col-lg-5 col-sm-12 pb-3">
+        <a class="text-dark nav-link" href="#">Term & Condition </a>
+        <a class="text-dark nav-link" href="#">Policy</a>
+        <a class="text-dark nav-link" href="#">Map</a>
+      </div>
+        <div class="col-lg-4  col-sm-12 pb-3">
+          <h1 class="ps-4">Ostore</h1>
+        </div>
+        <div class="col-lg-3  col-sm-12 pb-3">
+          <div class="d-flex justify-content-between">
+            <p>Follow us on social</p>
+            <a class="bi bi-facebook pe-3 text-dark" href="#"></a> 
+            <a class="bi bi-twitter pe-3 text-dark" href="#"></a>
+            <a class="bi bi-instagram text-dark" href="#"></a></div>
+        </div>
+        </div>
+    </div>
+    
+    <p class="text-center pb-3">&#169;2022 Ostore. All Rights Reserved.</p>
+    
+  </div>
+
+
+
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"
+  ></script>
+  <script src=""></script>
+  <script src="script4.js"></script>
+  <script src="../js/scriptall.js"></script>
+</body>
+</html>
