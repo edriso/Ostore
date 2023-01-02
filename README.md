@@ -17,28 +17,28 @@ Team #1's e-commerce project that made using JS.
 
 ### Team Roles
 
-- ##### Esraa Hussein
+- **Esraa Hussein**
 
   - Working on Homepage, Categories pages & Navbar, Footer
   - Practiced on: Bootstrap, CSS, HTML, JS, Fetching products from an API, Storing and getting data using localStorage, Filtering, ForEach, Debugging using console.log(), Git, and Github
 
-- ##### Ahmed Mohamed Hassan
+- **Ahmed Mohamed Hassan**
 
   - Working on Login, Signup pages
   - Practiced on: Bootstrap, Form validation using regex, Styling Form errors, LocalStorage, SessionStorage, Handling object error in case was null, Git, and Github
 
-- ##### Abdelrahman Mahmoud
+- **Abdelrahman Mahmoud**
 
   - Finding an API
   - Working on Cart, Checkout, 404 pages
   - Practiced on: Bootstrap, LocalStorage, SessionStorage, JavaScript, Filtering data, Handling object error in case was null, Git, and Github
 
-- ##### Abdelrahman Mohamed Moussa
+- **Abdelrahman Mohamed Moussa**
 
   - Working on Item-details page
   - Practiced on: HTML, CSS, JS, LocalStorage, SessionStorage, Git, and Github
 
-- ##### Mohamed Idris
+- **Mohamed Idris**
   - Working on About, Contact pages
   - Supporting the team in case of stuck
   - Practiced on: Project Structuring, Creating workspace on Trello, Thinking as a fullstack developer, Git, and Github
