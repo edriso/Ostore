@@ -14,14 +14,19 @@ function addItemToCartStorage(productId) {
   }
   localStorage.setItem("cart", JSON.stringify(cart));
 }
-fetch("../js/json_data.json")
-  .then((response) => response.json())
-  .then(function (data) {
-    localStorage.setItem("my products", JSON.stringify(data));
-    if (!localStorage.getItem("cart")) {
-      localStorage.setItem("cart", "[]");
-    }
-  });
+
+async function getAllProducts() {
+  await fetch("../js/json_data.json")
+    .then((response) => response.json())
+    .then(function (data) {
+      localStorage.setItem("my products", JSON.stringify(data));
+      if (!localStorage.getItem("cart")) {
+        localStorage.setItem("cart", "[]");
+      }
+    });
+}
+
+getAllProducts();
 
 //variables to hold the data
 let products = JSON.parse(localStorage.getItem("my products"));
