@@ -5,9 +5,9 @@ Team #1's e-commerce project that made using JS.
 ### Key Features
 
 - User can login or signup.
-- User can preview 5 categories.
-- Details page for each item exists in the store.
-- Only loggedin users can add items to cart, and buy items.
+- User can preview 5 product categories.
+- There's a detailed page for each product depend on its ID. If productID was not exist, it redirects to 404 page.
+- Only loggedin users can add items to cart to buy them.
 
 ### Snapshot of Trello
 
